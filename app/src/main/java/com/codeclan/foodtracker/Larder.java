@@ -22,8 +22,7 @@ public class Larder {
     public Item getItemByName(String name){
         for(Item item : this.larder){
             if(item.getName().equals(name)){
-                Item newItem = item;
-                return newItem;
+                return item;
             }
         }
         return null;
