@@ -1,5 +1,6 @@
 package com.codeclan.foodtracker;
 
+import java.net.InterfaceAddress;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -65,7 +66,7 @@ public class Meal {
 
     }
 
-    public Integer getTotalCaloriesPerCent(){
+    public Integer getTotalCalories(){
         HashMap<Item, Integer> ingredients = this.ingredients;
         Integer itemCalories = 0;
         Integer mealSize = 0;
@@ -75,11 +76,54 @@ public class Meal {
         for(Integer item : ingredients.values()){
             mealSize += item;
         }
-        Integer averageCaloriePerCent = (itemCalories/ingredients.size());
-        Integer number = averageCaloriePerCent/100;
-        Integer totalCalorie = mealSize * number;
+        Integer totalCalorie = (itemCalories/ingredients.size())* mealSize;
+        Integer result = totalCalorie/100;
+        return result;
+    }
 
-        return totalCalorie;
+    public Integer getTotalFat(){
+        HashMap<Item, Integer> ingredients = this.ingredients;
+        Integer itemFat = 0;
+        Integer mealSize = 0;
+        for(Item item : ingredients.keySet()){
+            itemFat += item.getFat();
+        }
+        for(Integer item : ingredients.values()){
+            mealSize += item;
+        }
+        Integer totalFat = (itemFat/ingredients.size())* mealSize;
+        Integer result = totalFat/100;
+        return result;
+    }
+
+    public Integer getTotalProtein(){
+        HashMap<Item, Integer> ingredients = this.ingredients;
+        Integer itemProtein = 0;
+        Integer mealSize = 0;
+        for(Item item : ingredients.keySet()){
+            itemProtein += item.getProtein();
+        }
+        for(Integer item : ingredients.values()){
+            mealSize += item;
+        }
+        Integer totalProtien = (itemProtein/ingredients.size())* mealSize;
+        Integer result = totalProtien/100;
+        return result;
+    }
+
+    public Integer getTotalCarbohydrates(){
+        HashMap<Item, Integer> ingredients = this.ingredients;
+        Integer itemCarb = 0;
+        Integer mealSize = 0;
+        for(Item item : ingredients.keySet()){
+            itemCarb += item.getCarbohydrate();
+        }
+        for(Integer item : ingredients.values()){
+            mealSize += item;
+        }
+        Integer totalCarb = (itemCarb/ingredients.size())* mealSize;
+        Integer result = totalCarb/100;
+        return result;
     }
 
 

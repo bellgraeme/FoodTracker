@@ -33,7 +33,7 @@ public class TestMeal {
     }
     @Test
     public void testTotalCalories(){
-        assertEquals((Integer)110 , meal.getTotalCaloriesPerCent());
+        assertEquals((Integer)110 , meal.getTotalCalories());
     }
 
     @Test
@@ -51,9 +51,20 @@ public class TestMeal {
         Integer itemCalories = meal.itemTotalCalories();
         Integer mealSize = meal.itemTotalMealWeight();
         Integer numberItem = meal.getIngredients().size();
-        Integer avgCalories = (itemCalories/numberItem)/100;
-        Integer result = avgCalories*mealSize;
-        assertEquals((Integer)110, result);
+        Integer avgCalories = ((itemCalories/numberItem)*mealSize)/100;
+        assertEquals((Integer)110, avgCalories);
+    }
 
+    @Test
+    public void testTotalProtein(){
+        assertEquals((Integer)10 , meal.getTotalProtein());
+    }
+    @Test
+    public void testTotalFat(){
+        assertEquals((Integer)10 , meal.getTotalFat());
+    }
+    @Test
+    public void testTotalCarbs(){
+        assertEquals((Integer)50 , meal.getTotalCarbohydrates());
     }
 }
