@@ -14,8 +14,7 @@ public class TestLarder {
 
 
     Larder larder;
-    Item carrot;
-    Item sausage;
+
 
     @Before
     public void before() {
