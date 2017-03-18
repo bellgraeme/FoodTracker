@@ -1,11 +1,12 @@
 package com.codeclan.foodtracker;
 
 import java.net.InterfaceAddress;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Meal {
+public class Meal implements Comparable<Meal>{
 
     private String  name;
     private Date date;
@@ -73,12 +74,11 @@ public class Meal {
         for(Item item : ingredients.keySet()){
             itemCalories += item.getCalories();
         }
-        for(Integer item : ingredients.values()){
-            mealSize += item;
+        for(Integer value : ingredients.values()){
+            mealSize += value;
         }
         Integer totalCalorie = (itemCalories/ingredients.size())* mealSize;
-        Integer result = totalCalorie/100;
-        return result;
+        return totalCalorie/100;
     }
 
     public Integer getTotalFat(){
@@ -88,12 +88,11 @@ public class Meal {
         for(Item item : ingredients.keySet()){
             itemFat += item.getFat();
         }
-        for(Integer item : ingredients.values()){
-            mealSize += item;
+        for(Integer value : ingredients.values()){
+            mealSize += value;
         }
         Integer totalFat = (itemFat/ingredients.size())* mealSize;
-        Integer result = totalFat/100;
-        return result;
+        return totalFat/100;
     }
 
     public Integer getTotalProtein(){
@@ -103,12 +102,11 @@ public class Meal {
         for(Item item : ingredients.keySet()){
             itemProtein += item.getProtein();
         }
-        for(Integer item : ingredients.values()){
-            mealSize += item;
+        for(Integer value : ingredients.values()){
+            mealSize += value;
         }
-        Integer totalProtien = (itemProtein/ingredients.size())* mealSize;
-        Integer result = totalProtien/100;
-        return result;
+        Integer totalProtein = (itemProtein/ingredients.size())* mealSize;
+        return totalProtein/100;
     }
 
     public Integer getTotalCarbohydrates(){
@@ -118,16 +116,34 @@ public class Meal {
         for(Item item : ingredients.keySet()){
             itemCarb += item.getCarbohydrate();
         }
-        for(Integer item : ingredients.values()){
-            mealSize += item;
+        for(Integer value : ingredients.values()){
+            mealSize += value;
         }
         Integer totalCarb = (itemCarb/ingredients.size())* mealSize;
-        Integer result = totalCarb/100;
-        return result;
+        return totalCarb/100;
     }
+
 
 
     public void addItemToMeal(Item item, Integer amount){
         this.ingredients.put(item, amount);
     }
+
+
+    public static Comparator<Meal> MealDateComparator = new Comparator<Meal>() {
+        @Override
+        public int compare(Meal meal, Meal t1) {
+
+            Date date = meal.getDate();
+            Date date1 = t1.getDate();
+
+            return date.compareTo(date1);
+        }
+    };
+
+    @Override
+    public int compareTo(Meal meal) {
+        return 0;
+    }
 }
+
