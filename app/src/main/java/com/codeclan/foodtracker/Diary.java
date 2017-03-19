@@ -1,13 +1,10 @@
 package com.codeclan.foodtracker;
 
-
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.List;
 import java.util.Locale;
 
 public class Diary {
@@ -71,8 +68,8 @@ public class Diary {
 
     public ArrayList<Meal>findMealDateRange(Date start, Date end){
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.UK);
-        String startDate = formatter.format(start);
-        String endDate = formatter.format(end);
+        Calendar startDate2 = toCalendar(start);
+        Calendar endDate2 = toCalendar(end);
         ArrayList<Meal> result = new ArrayList<Meal>();
         Calendar calendar = new GregorianCalendar();
         calendar.setTime(start);
