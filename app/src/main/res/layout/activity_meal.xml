@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.codeclan.foodtracker.MealActivity"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
+
+    <Spinner
+        android:id="@+id/spinner4"
+        android:layout_width="198dp"
+        android:layout_height="50dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="204dp" />
+
+    <Spinner
+        android:id="@+id/spinner5"
+        android:layout_width="198dp"
+        android:layout_height="50dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="265dp" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="198dp"
+        android:layout_height="50dp"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <Spinner
+        android:id="@+id/spinner3"
+        android:layout_width="198dp"
+        android:layout_height="50dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="138dp" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="198dp"
+        android:layout_height="50dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="76dp" />
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="157dp"
+        android:layout_height="128dp"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="367dp" />
+
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="122dp"
+        android:layout_height="97dp"
+        tools:layout_editor_absoluteY="367dp"
+        tools:layout_editor_absoluteX="226dp" />
+
+    <EditText
+        android:id="@+id/editText6"
+        android:layout_width="93dp"
+        android:layout_height="36dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="Weight"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="255dp"
+        tools:layout_editor_absoluteY="265dp" />
+
+    <EditText
+        android:id="@+id/editText10"
+        android:layout_width="93dp"
+        android:layout_height="36dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="Weight"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="255dp"
+        tools:layout_editor_absoluteY="204dp" />
+
+    <EditText
+        android:id="@+id/editText9"
+        android:layout_width="93dp"
+        android:layout_height="36dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="Weight"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="255dp"
+        tools:layout_editor_absoluteY="138dp" />
+
+    <EditText
+        android:id="@+id/editText8"
+        android:layout_width="93dp"
+        android:layout_height="36dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="Weight"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="255dp"
+        tools:layout_editor_absoluteY="76dp" />
+
+    <EditText
+        android:id="@+id/editText7"
+        android:layout_width="93dp"
+        android:layout_height="36dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="Weight"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="255dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+</LinearLayout>

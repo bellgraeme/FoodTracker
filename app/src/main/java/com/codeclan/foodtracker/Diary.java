@@ -63,6 +63,12 @@ public class Diary {
         return result;
     }
 
+    public static Calendar toCalendar(Date date){
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return cal;
+    }
+
     public ArrayList<Meal>findMealDateRange(Date start, Date end){
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.UK);
         String startDate = formatter.format(start);
@@ -72,7 +78,8 @@ public class Diary {
         calendar.setTime(start);
         while (calendar.getTime().before(end)) {
             for (Meal item : this.diary){
-                if (formatter.format(calendar).equals(formatter.format(item.getDate()))) {
+                Calendar cal = toCalendar(item.getDate());
+                if (formatter.format(calendar).equals(formatter.format(cal))) {
                     result.add(item);}
             }
             calendar.add(Calendar.DATE, 1);

@@ -11,4 +11,13 @@
         android:layout_height="wrap_content"
          />
 
+    <Button
+        android:id="@+id/shake_button"
+        android:text="@string/meal_create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:layout_gravity="center"
+        android:onClick="createMealButtonClicked"/>
+
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.codeclan.foodtracker;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
@@ -20,10 +21,14 @@ public class MainActivity extends AppCompatActivity {
 
         ListView listview = (ListView)findViewById(R.id.diary_list);
         listview.setAdapter(diaryAdapter);
-
-
-
-
-
     }
+
+    public void createMealButtonClicked(){
+        Intent intent = new Intent(this, MealActivity.class);
+        startActivity(intent);
+    }
+
+
+
 }
+
