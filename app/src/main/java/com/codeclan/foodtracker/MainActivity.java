@@ -3,6 +3,7 @@ package com.codeclan.foodtracker;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         listview.setAdapter(diaryAdapter);
     }
 
-    public void createMealButtonClicked(){
+    public void createMealButtonClicked(View button){
         Intent intent = new Intent(this, MealActivity.class);
         startActivity(intent);
     }

@@ -12,7 +12,7 @@
          />
 
     <Button
-        android:id="@+id/shake_button"
+        android:id="@+id/meal_button"
         android:text="@string/meal_create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.codeclan.foodtracker.MealActivity"
     tools:layout_editor_absoluteY="81dp"
-    tools:layout_editor_absoluteX="0dp">
+    tools:layout_editor_absoluteX="0dp"
+    android:orientation="vertical">
 
     <Spinner
         android:id="@+id/spinner4"
         android:layout_width="198dp"
         android:layout_height="50dp"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="204dp" />
-
-    <Spinner
-        android:id="@+id/spinner5"
-        android:layout_width="198dp"
-        android:layout_height="50dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="265dp" />
+        tools:layout_editor_absoluteY="204dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/spinner1"
+        android:layout_alignLeft="@+id/spinner1"
+        android:layout_alignStart="@+id/spinner1" />
 
     <Spinner
         android:id="@+id/spinner1"
@@ -28,35 +25,40 @@
         android:layout_height="50dp"
         android:visibility="visible"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        tools:layout_editor_absoluteY="16dp"
+        android:layout_alignBottom="@+id/editText9"
+        android:layout_alignLeft="@+id/spinner3"
+        android:layout_alignStart="@+id/spinner3" />
 
     <Spinner
         android:id="@+id/spinner3"
         android:layout_width="198dp"
         android:layout_height="50dp"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="138dp" />
+        tools:layout_editor_absoluteY="138dp"
+        android:layout_alignBottom="@+id/editText8"
+        android:layout_alignLeft="@+id/spinner8"
+        android:layout_alignStart="@+id/spinner8" />
+
+    <Spinner
+        android:id="@+id/spinner8"
+        android:layout_width="198dp"
+        android:layout_height="50dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="138dp"
+        android:layout_alignBottom="@+id/editText7"
+        android:layout_toRightOf="@+id/datePicker"
+        android:layout_toEndOf="@+id/datePicker" />
 
     <Spinner
         android:id="@+id/spinner2"
         android:layout_width="198dp"
         android:layout_height="50dp"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="76dp" />
-
-    <DatePicker
-        android:id="@+id/datePicker"
-        android:layout_width="157dp"
-        android:layout_height="128dp"
-        tools:layout_editor_absoluteX="46dp"
-        tools:layout_editor_absoluteY="367dp" />
-
-    <TimePicker
-        android:id="@+id/timePicker"
-        android:layout_width="122dp"
-        android:layout_height="97dp"
-        tools:layout_editor_absoluteY="367dp"
-        tools:layout_editor_absoluteX="226dp" />
+        tools:layout_editor_absoluteY="76dp"
+        android:layout_alignBottom="@+id/editText6"
+        android:layout_alignLeft="@+id/spinner4"
+        android:layout_alignStart="@+id/spinner4" />
 
     <EditText
         android:id="@+id/editText6"
@@ -64,10 +66,16 @@
         android:layout_height="36dp"
         android:ems="10"
         android:inputType="number"
-        android:text="Weight"
+        android:text="@string/weight"
         android:visibility="visible"
         tools:layout_editor_absoluteX="255dp"
-        tools:layout_editor_absoluteY="265dp" />
+        tools:layout_editor_absoluteY="265dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginLeft="37dp"
+        android:layout_marginStart="37dp"
+        android:layout_below="@+id/spinner4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/editText10"
@@ -75,10 +83,14 @@
         android:layout_height="36dp"
         android:ems="10"
         android:inputType="number"
-        android:text="Weight"
+        android:text="@string/weight"
         android:visibility="visible"
         tools:layout_editor_absoluteX="255dp"
-        tools:layout_editor_absoluteY="204dp" />
+        tools:layout_editor_absoluteY="204dp"
+        android:layout_alignBottom="@+id/spinner4"
+        android:layout_alignLeft="@+id/editText6"
+        android:layout_alignStart="@+id/editText6"
+        android:layout_marginBottom="6dp" />
 
     <EditText
         android:id="@+id/editText9"
@@ -86,10 +98,14 @@
         android:layout_height="36dp"
         android:ems="10"
         android:inputType="number"
-        android:text="Weight"
+        android:text="@string/weight"
         android:visibility="visible"
         tools:layout_editor_absoluteX="255dp"
-        tools:layout_editor_absoluteY="138dp" />
+        tools:layout_editor_absoluteY="138dp"
+        android:layout_marginTop="34dp"
+        android:layout_below="@+id/editText8"
+        android:layout_alignLeft="@+id/editText10"
+        android:layout_alignStart="@+id/editText10" />
 
     <EditText
         android:id="@+id/editText8"
@@ -97,10 +113,27 @@
         android:layout_height="36dp"
         android:ems="10"
         android:inputType="number"
-        android:text="Weight"
+        android:text="@string/weight"
         android:visibility="visible"
         tools:layout_editor_absoluteX="255dp"
-        tools:layout_editor_absoluteY="76dp" />
+        tools:layout_editor_absoluteY="76dp"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/editText7"
+        android:layout_alignLeft="@+id/editText9"
+        android:layout_alignStart="@+id/editText9" />
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="157dp"
+        android:layout_height="128dp"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="367dp"
+        android:layout_marginBottom="39dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="48dp"
+        android:layout_marginStart="48dp" />
 
     <EditText
         android:id="@+id/editText7"
@@ -108,9 +141,25 @@
         android:layout_height="36dp"
         android:ems="10"
         android:inputType="number"
-        android:text="Weight"
+        android:text="@string/weight"
         android:visibility="visible"
         tools:layout_editor_absoluteX="255dp"
-        tools:layout_editor_absoluteY="16dp" />
+        tools:layout_editor_absoluteY="16dp"
+        android:layout_marginTop="37dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/editText8"
+        android:layout_alignStart="@+id/editText8" />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/create_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/datePicker"
+        android:layout_marginLeft="68dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="48dp"
+        android:layout_toEndOf="@+id/datePicker"
+        android:layout_toRightOf="@+id/datePicker"
+        android:text="@string/create" />
+
+</RelativeLayout>
