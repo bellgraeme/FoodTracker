@@ -64,7 +64,7 @@ public class TestMeal {
         assertEquals((Integer)10 , meal.getTotalFat());
     }
     @Test
-    public void testTotalCarbs(){
+    public void testTotalCarb(){
         assertEquals((Integer)50 , meal.getTotalCarbohydrates());
     }
 }

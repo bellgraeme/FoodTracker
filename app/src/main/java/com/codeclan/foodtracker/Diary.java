@@ -1,8 +1,14 @@
 package com.codeclan.foodtracker;
 
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.Locale;
 
 public class Diary {
 
@@ -10,13 +16,28 @@ public class Diary {
 
     public Diary(){
         this.diary = new ArrayList<Meal>();
+        Date date =  new Date();
+        date.getTime();
+        Meal meal1 = new Meal("someMeal", date);
+        Meal meal2 = new Meal("someMeal", date);
+        Meal meal3 = new Meal("someMeal", date);
+        Meal meal4 = new Meal("someMeal", date);
+        Meal meal5 = new Meal("someMeal", date);
+        Meal meal6 = new Meal("someMeal", date);
+        diary.add(meal1);
+        diary.add(meal2);
+        diary.add(meal3);
+        diary.add(meal4);
+        diary.add(meal5);
+        diary.add(meal6);
+
     }
 
 
 
 
     public ArrayList<Meal> getDiary() {
-        return diary;
+        return new ArrayList<Meal>(diary);
     }
 
     public void addMeal(Meal meal){
@@ -32,7 +53,7 @@ public class Diary {
 
 
 
-    public ArrayList<Meal> findAllMealsbyDate(Date date){
+    public ArrayList<Meal> findAllMealsByDate(Date date){
         ArrayList<Meal> result = new ArrayList<Meal>();
         for(int i = 0; i < this.diary.size(); i++){
             if(date.equals(this.diary.get(i).getDate())){
@@ -41,4 +62,23 @@ public class Diary {
         }
         return result;
     }
+
+    public ArrayList<Meal>findMealDateRange(Date start, Date end){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.UK);
+        String startDate = formatter.format(start);
+        String endDate = formatter.format(end);
+        ArrayList<Meal> result = new ArrayList<Meal>();
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(start);
+        while (calendar.getTime().before(end)) {
+            for (Meal item : this.diary){
+                if (formatter.format(calendar).equals(formatter.format(item.getDate()))) {
+                    result.add(item);}
+            }
+            calendar.add(Calendar.DATE, 1);
+        }
+        return result;
+    }
+
+
 }
