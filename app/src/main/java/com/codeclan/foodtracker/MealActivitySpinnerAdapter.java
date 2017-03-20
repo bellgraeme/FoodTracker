@@ -31,7 +31,7 @@ public class MealActivitySpinnerAdapter extends ArrayAdapter {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         listItemView = inflater.inflate(R.layout.item_item, parent, false);
 
-        TextView food = (TextView) listItemView.findViewById(R.id.textView);
+        TextView food = (TextView) listItemView.findViewById(R.id.text_view);
         Item item = larder1.get(position);
         String name = item.getName();
         food.setText(name);

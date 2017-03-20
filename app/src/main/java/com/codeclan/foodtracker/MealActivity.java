@@ -1,18 +1,24 @@
 package com.codeclan.foodtracker;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
+
+import static com.codeclan.foodtracker.MainActivity.MEALS;
 
 public class MealActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    public final static String ITEMS = "items";
+
     Larder larder;
 
     @Override
@@ -42,5 +48,18 @@ public class MealActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public void onNothingSelected(AdapterView<?> arg0) {
         // TODO Auto-generated method stub
+    }
+
+    public void addListToSharedPreferences(View view){
+        SharedPreferences sharedPref = getSharedPreferences(MEALS, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+
+        Gson gson = new Gson();
+
+        //Add guitarList to sharedPrefs as a JSON String. Then Apply.
+        editor.putString("Meals", gson.toJson(larder));
+        editor.apply();
+
+        Toast.makeText(MealActivity.this, "Meal added to Diary", Toast.LENGTH_LONG).show();
     }
 }
