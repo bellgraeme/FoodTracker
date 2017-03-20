@@ -12,16 +12,13 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String ITEMS = "Items";
-    public static final String MEALS = "Meals";
+    public static final String FOODTRACKER = "foodtracker";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//
-//        SharedPreferences sharedPref1 = getSharedPreferences(ITEMS, Context.MODE_PRIVATE);
-//        SharedPreferences sharedPref2 = getSharedPreferences(MEALS, Context.MODE_PRIVATE);
+
         SharedPreferences sharedPref = getSharedPreferences(FOODTRACKER, Context.MODE_PRIVATE);
 
         String items = sharedPref.getString("items", "Nothing here");

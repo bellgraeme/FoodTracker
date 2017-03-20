@@ -29,7 +29,7 @@ public class MealActivitySpinnerAdapter extends ArrayAdapter {
     public View getView(int position, View listItemView, ViewGroup parent) {
 
         LayoutInflater inflater = LayoutInflater.from(getContext());
-        listItemView = inflater.inflate(R.layout.item_item, parent, false);
+        listItemView = inflater.inflate(R.layout.item_item, parent, true);
 
         TextView food = (TextView) listItemView.findViewById(R.id.text_view);
         Item item = larder1.get(position);

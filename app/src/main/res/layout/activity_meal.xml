@@ -9,6 +9,7 @@
     android:orientation="vertical">
 
     <Spinner
+        android:spinnerMode="dropdown"
         android:id="@+id/spinner4"
         android:layout_width="198dp"
         android:layout_height="50dp"
@@ -20,6 +21,7 @@
         android:layout_alignStart="@+id/spinner1" />
 
     <Spinner
+        android:spinnerMode="dropdown"
         android:id="@+id/spinner1"
         android:layout_width="198dp"
         android:layout_height="50dp"
@@ -31,26 +33,33 @@
         android:layout_alignStart="@+id/spinner3" />
 
     <Spinner
+        android:spinnerMode="dropdown"
         android:id="@+id/spinner3"
         android:layout_width="198dp"
         android:layout_height="50dp"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="138dp"
-        android:layout_alignBottom="@+id/editText8"
-        android:layout_alignLeft="@+id/spinner8"
-        android:layout_alignStart="@+id/spinner8" />
+        android:layout_above="@+id/editText9"
+        android:layout_toRightOf="@+id/datePicker"
+        android:layout_toEndOf="@+id/datePicker" />
 
     <Spinner
+        android:spinnerMode="dropdown"
         android:id="@+id/spinner8"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="138dp"
-        android:layout_alignBottom="@+id/editText7"
-        android:layout_toRightOf="@+id/datePicker"
-        android:layout_toEndOf="@+id/datePicker" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="14dp"
+        android:layout_marginEnd="14dp"
+        android:layout_above="@+id/editText8"
+        android:layout_alignLeft="@+id/spinner3"
+        android:layout_alignStart="@+id/spinner3" />
 
     <Spinner
+        android:spinnerMode="dropdown"
         android:id="@+id/spinner2"
         android:layout_width="198dp"
         android:layout_height="50dp"

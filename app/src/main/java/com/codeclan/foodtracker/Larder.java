@@ -39,6 +39,14 @@ public class Larder {
         return this.larder.size();
     }
 
+    public ArrayList<String> getNames(){
+        ArrayList<String> result = new ArrayList<>();
+        for(Item item :  this.larder){
+            result.add(item.getName());
+        }
+        return result;
+    }
+
 
 
 }

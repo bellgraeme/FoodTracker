@@ -5,8 +5,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -14,9 +16,17 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
-import static com.codeclan.foodtracker.MainActivity.MEALS;
+import static com.codeclan.foodtracker.MainActivity.FOODTRACKER;
 
-public class MealActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
+public class MealActivity extends AppCompatActivity {
+
+
+    Spinner spinner1;
+    Spinner spinner2;
+    Spinner spinner3;
+    Spinner spinner4;
+    Spinner spinner8;
 
 
     Larder larder;
@@ -25,33 +35,48 @@ public class MealActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meal);
+
         larder = new Larder();
-        ArrayList<Item> larder1 = larder.getLarder();
+        larder.getLarder();
+        Spinner spinners[] = new  Spinner [5];
+        ArrayList<String> names = larder.getNames();
+        spinner1 = (Spinner) findViewById(R.id.spinner1);
+        spinner2 = (Spinner) findViewById(R.id.spinner2);
+        spinner3 = (Spinner) findViewById(R.id.spinner3);
+        spinner4 = (Spinner) findViewById(R.id.spinner4);
+        spinner8 = (Spinner) findViewById(R.id.spinner8);
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner1);
-        spinner.setOnItemSelectedListener(this);
 
-        MealActivitySpinnerAdapter adapter = new MealActivitySpinnerAdapter(getApplicationContext(), larder1);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, names);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner1.setAdapter(dataAdapter);
+        spinner2.setAdapter(dataAdapter);
+        spinner3.setAdapter(dataAdapter);
+        spinner4.setAdapter(dataAdapter);
+        spinner8.setAdapter(dataAdapter);
+        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-    }
+                String name = parent.getItemAtPosition(position).toString();
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        // On selecting a spinner item
-        Item item = (Item) parent.getItemAtPosition(position);
-        String name = item.getName();
-        // Showing selected spinner item
-        Toast.makeText(parent.getContext(), "Selected: " + name, Toast.LENGTH_LONG).show();
-    }
+                Item item = larder.getItemByName(name);
+                Log.d("Logged:",  name);
+            }
 
-    public void onNothingSelected(AdapterView<?> arg0) {
-        // TODO Auto-generated method stub
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+
+
     }
 
     public void addListToSharedPreferences(View view){
-        SharedPreferences sharedPref = getSharedPreferences(MEALS, Context.MODE_PRIVATE);
+    SharedPreferences sharedPref = getSharedPreferences(FOODTRACKER, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
         Gson gson = new Gson();
