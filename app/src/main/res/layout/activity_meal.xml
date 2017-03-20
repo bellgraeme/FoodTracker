@@ -42,7 +42,7 @@
 
     <Spinner
         android:id="@+id/spinner8"
-        android:layout_width="198dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="138dp"
@@ -161,5 +161,16 @@
         android:layout_toEndOf="@+id/datePicker"
         android:layout_toRightOf="@+id/datePicker"
         android:text="@string/create" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/datePicker"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="11dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/meal_name" />
 
 </RelativeLayout>

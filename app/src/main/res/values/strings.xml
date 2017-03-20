@@ -3,4 +3,14 @@
     <string name="meal_create">Create Meal</string>
     <string name="create">Create</string>
     <string name="weight">Weight</string>
+    <string name="meal_name">Name Your Meal</string>
+
+    <string-array name="item">
+        <item>Carrot</item>
+        <item>Sausage</item>
+        <item>Potato</item>
+        <item>Milk</item>
+        <item>Beer</item>
+    </string-array>
+
 </resources>
