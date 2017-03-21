@@ -8,27 +8,45 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final String FOODTRACKER = "foodtracker";
+    private Diary diary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        diary = new Diary();
+        ArrayList<Meal> list = diary.setDiary();
+
         SharedPreferences sharedPref = getSharedPreferences(FOODTRACKER, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        Gson gson = new Gson();
+        editor.putString("Diary", gson.toJson(list));
+        editor.apply();
 
-        String items = sharedPref.getString("items", "Nothing here");
-        String meals = sharedPref.getString("meals", "Nothing here");
+        String diary = sharedPref.getString("Diary", "Nothing here");
 
-        Diary diary = new Diary();
-        ArrayList<Meal> list = diary.getDiary();
+        TypeToken<ArrayList<Diary>> token = new TypeToken<ArrayList<Diary>>(){};
+        ArrayList<Diary> foodTracker = gson.fromJson(diary, token.getType());
 
-        DiaryAdapter diaryAdapter = new DiaryAdapter(this, list);
+        ArrayList<Meal> list2 = new ArrayList<>();
 
+        for( Diary diary2 : foodTracker){
+            for(Meal meal : diary2.getDiary()){
+                list2.add(meal);
+            }
+        }
+
+
+        DiaryAdapter diaryAdapter = new DiaryAdapter(this, list2);
         ListView listview = (ListView)findViewById(R.id.diary_list);
         listview.setAdapter(diaryAdapter);
     }

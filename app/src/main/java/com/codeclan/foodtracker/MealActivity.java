@@ -1,4 +1,5 @@
 package com.codeclan.foodtracker;
+import android.content.Intent;
 import android.view.View;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -74,30 +75,11 @@ public class MealActivity extends AppCompatActivity {
             item.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    String name = parent.getItemAtPosition(position).toString();
-                    parent.getItemAtPosition(position);
-                    switch (parent.getId()) {
-                        case R.id.spinner1:
-                            String itemName1 = parent.getContext().toString();
-                            item3 = larder.getItemByName(itemName1);
-                            break;
-                        case R.id.spinner2:
-                            String itemName2 = parent.getContext().toString();
-                            item1 = larder.getItemByName(itemName2);
-                            break;
-                        case R.id.spinner3:
-                            String itemName3 = parent.getContext().toString();
-                            item3   = larder.getItemByName(itemName3);
-                            break;
-                        case R.id.spinner4:
-                            String itemName4 = parent.getContext().toString();
-                            item4 = larder.getItemByName(itemName4);
-                            break;
-                        case R.id.spinner8:
-                            String itemName5 = parent.getContext().toString();
-                            item2 = larder.getItemByName(itemName5);
-                            break;
-                    }
+                    String value = parent.getItemAtPosition(position).toString();
+                    Log.d("THA VALUE:", value);
+                    meal.addItemToMeal(larder.getItemByName(value), 1);
+
+
 
                 }
 
@@ -111,21 +93,26 @@ public class MealActivity extends AppCompatActivity {
         EditText foodWeight1 = (EditText) findViewById(R.id.editText6);
         String foodWeight11 = foodWeight1.getText().toString();
         foodWeight111 = Integer.parseInt(foodWeight11);
+
         EditText foodWeight2 = (EditText) findViewById(R.id.editText10);
         String foodWeight22 = foodWeight2.getText().toString();
         foodWeight222 = Integer.parseInt(foodWeight22);
+
         EditText foodWeight3 = (EditText) findViewById(R.id.editText9);
         String foodWeight33 = foodWeight3.getText().toString();
         foodWeight333 = Integer.parseInt(foodWeight33);
+
         EditText foodWeight4 = (EditText) findViewById(R.id.editText8);
         String foodWeight44 = foodWeight4.getText().toString();
         foodWeight444 = Integer.parseInt(foodWeight44);
+
         EditText foodWeight5 = (EditText) findViewById(R.id.editText7);
         String foodWeight55 = foodWeight5.getText().toString();
         foodWeight555 = Integer.parseInt(foodWeight55);
+
         EditText mealName = (EditText) findViewById(R.id.meal_name);
         name = mealName.getText().toString();
-
+        Log.d("Name", name);
 
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
@@ -143,7 +130,7 @@ public class MealActivity extends AppCompatActivity {
                 .show();
     }
 
-    @Override
+    @Override @SuppressWarnings("deprecation")
     protected Dialog onCreateDialog(int id) {
         if (id == 999) {
             return new DatePickerDialog(this,
@@ -164,23 +151,17 @@ public class MealActivity extends AppCompatActivity {
 
                     StringBuilder input;
 
-
                     if(month < 10) {
-                        input = new StringBuilder().append(year).append("-").append(0)
-                                .append(month + 1).append("-").append(day);
+                        input = new StringBuilder().append(year).append("-").append(0).append(month + 1).append("-").append(day);
                     }
                     else{
-                     input = new StringBuilder().append(year).append("-")
-                            .append(month + 1).append("-").append(day);}
+                     input = new StringBuilder().append(year).append("-").append(month + 1).append("-").append(day);}
 
-                String newString = input.toString();
-
-
+                    String newString = input.toString();
 
                     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                     try{
                         date = formatter.parse(newString);
-                        Log.d("date",date.toString());
                     }
                     catch(Exception ex) {
 
@@ -189,18 +170,36 @@ public class MealActivity extends AppCompatActivity {
                 }
             };
 
-    public void createMeal(View view){
-        meal.addItemToMeal(item1, foodWeight111);
-        meal.addItemToMeal(item2, foodWeight222);
-        meal.addItemToMeal(item3, foodWeight333);
-        meal.addItemToMeal(item4, foodWeight444);
-        meal.addItemToMeal(item5, foodWeight555);
+
+
+    public void createMeal(View button){
+//
+//
+//        meal = new Meal("temp", date);
+//        meal.addItemToMeal(item1, foodWeight111);
+//        meal.addItemToMeal(item2, foodWeight222);
+//        meal.addItemToMeal(item3, foodWeight333);
+//        meal.addItemToMeal(item4, foodWeight444);
+//        meal.addItemToMeal(item5, foodWeight555);
         meal.setDate(date);
+
+        EditText mealName = (EditText) findViewById(R.id.meal_name);
+        name = mealName.getText().toString();
+
         meal.setName(name);
         meal.zeroWeight();
+        Log.d("meal",  meal.getName());
 
-        Log.d("meal",  meal.getName() + meal.getDate().toString() + meal.getTotalCalories().toString());
+        SharedPreferences sharedPref = getSharedPreferences(FOODTRACKER, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        Gson gson = new Gson();
+        editor.putString(meal.getName(), gson.toJson(meal));
+        editor.apply();
+        Intent intent = new Intent();
 
+        Bundle this_bundle= new Bundle();
+        this_bundle.putString("myObj", "date");
+        
 
     }
 

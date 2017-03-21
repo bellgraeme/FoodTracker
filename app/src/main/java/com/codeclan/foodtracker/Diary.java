@@ -33,8 +33,11 @@ public class Diary {
 
 
 
-    public ArrayList<Meal> getDiary() {
+    public ArrayList<Meal> setDiary() {
         return new ArrayList<Meal>(diary);
+    }
+    public ArrayList<Meal>getDiary(){
+        return this.diary;
     }
 
     public void addMeal(Meal meal){
