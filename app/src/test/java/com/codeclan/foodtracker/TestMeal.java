@@ -25,6 +25,7 @@ public class TestMeal {
         Item beer = new Item("beer", 200,0,0,60);
         meal.addItemToMeal(carrot, 100);
         meal.addItemToMeal(sausage, 100);
+        meal.addItemToMeal(potato, 0);
     }
 
     @Test
@@ -66,5 +67,11 @@ public class TestMeal {
     @Test
     public void testTotalCarb(){
         assertEquals((Integer)50 , meal.getTotalCarbohydrates());
+    }
+
+    @Test
+    public void testZeroWeight(){
+        meal.zeroWeight();
+        assertEquals(2, meal.getIngredients().size());
     }
 }

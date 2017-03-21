@@ -4,6 +4,7 @@ import java.net.InterfaceAddress;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class Meal implements Comparable<Meal>{
@@ -145,5 +146,17 @@ public class Meal implements Comparable<Meal>{
     public int compareTo(Meal meal) {
         return 0;
     }
+
+    public void zeroWeight(){
+        Map<Item, Integer> ingredients = this.ingredients;
+        for(Iterator<Map.Entry<Item, Integer>> it = ingredients.entrySet().iterator();
+            it.hasNext();)
+            {Map.Entry < Item, Integer > entry = it.next() ;
+        if (entry.getValue().equals(0)) {
+            it.remove();
+            }
+        }
+    }
+
 }
 

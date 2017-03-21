@@ -13,173 +13,148 @@
         android:id="@+id/spinner4"
         android:layout_width="198dp"
         android:layout_height="50dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="204dp"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/spinner1"
+        android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/spinner1"
-        android:layout_alignStart="@+id/spinner1" />
+        android:layout_alignStart="@+id/spinner1"
+        android:layout_marginLeft="7dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="10dp" />
 
     <Spinner
         android:spinnerMode="dropdown"
         android:id="@+id/spinner1"
         android:layout_width="198dp"
         android:layout_height="50dp"
-        android:visibility="visible"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp"
-        android:layout_alignBottom="@+id/editText9"
+        android:layout_below="@+id/spinner4"
         android:layout_alignLeft="@+id/spinner3"
-        android:layout_alignStart="@+id/spinner3" />
+        android:layout_alignStart="@+id/spinner3"
+        android:layout_marginTop="14dp" />
 
     <Spinner
         android:spinnerMode="dropdown"
         android:id="@+id/spinner3"
         android:layout_width="198dp"
         android:layout_height="50dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="138dp"
-        android:layout_above="@+id/editText9"
-        android:layout_toRightOf="@+id/datePicker"
-        android:layout_toEndOf="@+id/datePicker" />
+        android:layout_marginLeft="6dp"
+        android:layout_marginStart="6dp"
+        android:layout_below="@+id/editText10"
+        android:layout_alignLeft="@+id/spinner2"
+        android:layout_alignStart="@+id/spinner2"
+        android:layout_marginTop="6dp" />
 
     <Spinner
         android:spinnerMode="dropdown"
         android:id="@+id/spinner8"
-        android:layout_width="match_parent"
+        android:layout_width="198dp"
         android:layout_height="50dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="138dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="14dp"
-        android:layout_marginEnd="14dp"
-        android:layout_above="@+id/editText8"
-        android:layout_alignLeft="@+id/spinner3"
-        android:layout_alignStart="@+id/spinner3" />
+        android:layout_alignBottom="@+id/editText8"
+        android:layout_alignLeft="@+id/spinner4"
+        android:layout_alignStart="@+id/spinner4" />
 
     <Spinner
         android:spinnerMode="dropdown"
         android:id="@+id/spinner2"
         android:layout_width="198dp"
         android:layout_height="50dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="76dp"
-        android:layout_alignBottom="@+id/editText6"
-        android:layout_alignLeft="@+id/spinner4"
-        android:layout_alignStart="@+id/spinner4" />
+        android:layout_alignBottom="@+id/editText7"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp" />
 
     <EditText
         android:id="@+id/editText6"
         android:layout_width="93dp"
-        android:layout_height="36dp"
-        android:ems="10"
+        android:layout_height="40dp"
+        android:layout_alignEnd="@+id/editText7"
+        android:layout_alignRight="@+id/editText7"
+        android:layout_alignTop="@+id/spinner4"
+        android:hint="0"
         android:inputType="number"
-        android:text="@string/weight"
-        android:visibility="visible"
-        tools:layout_editor_absoluteX="255dp"
-        tools:layout_editor_absoluteY="265dp"
-        android:layout_marginTop="31dp"
-        android:layout_marginLeft="37dp"
-        android:layout_marginStart="37dp"
-        android:layout_below="@+id/spinner4"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:text="0" />
 
     <EditText
         android:id="@+id/editText10"
         android:layout_width="93dp"
-        android:layout_height="36dp"
-        android:ems="10"
-        android:inputType="number"
-        android:text="@string/weight"
-        android:visibility="visible"
-        tools:layout_editor_absoluteX="255dp"
-        tools:layout_editor_absoluteY="204dp"
-        android:layout_alignBottom="@+id/spinner4"
+        android:layout_height="40dp"
+        android:layout_alignBottom="@+id/spinner1"
+
         android:layout_alignLeft="@+id/editText6"
         android:layout_alignStart="@+id/editText6"
-        android:layout_marginBottom="6dp" />
+        android:hint="0"
+        android:inputType="number"
+        android:text="0" />
 
     <EditText
         android:id="@+id/editText9"
         android:layout_width="93dp"
-        android:layout_height="36dp"
-        android:ems="10"
-        android:inputType="number"
-        android:text="@string/weight"
-        android:visibility="visible"
-        tools:layout_editor_absoluteX="255dp"
-        tools:layout_editor_absoluteY="138dp"
-        android:layout_marginTop="34dp"
-        android:layout_below="@+id/editText8"
+        android:layout_height="40dp"
+        android:layout_alignBottom="@+id/spinner3"
         android:layout_alignLeft="@+id/editText10"
-        android:layout_alignStart="@+id/editText10" />
+        android:layout_alignStart="@+id/editText10"
+        android:hint="0"
+        android:inputType="number"
+        android:text="0" />
 
     <EditText
         android:id="@+id/editText8"
         android:layout_width="93dp"
-        android:layout_height="36dp"
-        android:ems="10"
-        android:inputType="number"
-        android:text="@string/weight"
-        android:visibility="visible"
-        tools:layout_editor_absoluteX="255dp"
-        tools:layout_editor_absoluteY="76dp"
-        android:layout_marginTop="35dp"
-        android:layout_below="@+id/editText7"
+        android:layout_height="40dp"
+        android:layout_above="@+id/spinner2"
         android:layout_alignLeft="@+id/editText9"
-        android:layout_alignStart="@+id/editText9" />
-
-    <DatePicker
-        android:id="@+id/datePicker"
-        android:layout_width="157dp"
-        android:layout_height="128dp"
-        tools:layout_editor_absoluteX="46dp"
-        tools:layout_editor_absoluteY="367dp"
-        android:layout_marginBottom="39dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="48dp"
-        android:layout_marginStart="48dp" />
+        android:layout_alignStart="@+id/editText9"
+        android:layout_marginBottom="20dp"
+        android:hint="0"
+        android:inputType="number"
+        android:text="0" />
 
     <EditText
         android:id="@+id/editText7"
-        android:layout_width="93dp"
-        android:layout_height="36dp"
-        android:ems="10"
+        android:layout_width="96dp"
+        android:layout_height="40dp"
         android:inputType="number"
         android:text="@string/weight"
-        android:visibility="visible"
-        tools:layout_editor_absoluteX="255dp"
-        tools:layout_editor_absoluteY="16dp"
-        android:layout_marginTop="37dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/editText8"
-        android:layout_alignStart="@+id/editText8" />
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/meal_name"
+        android:layout_toEndOf="@+id/meal_name"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp" />
 
     <Button
         android:id="@+id/create_button"
+        android:onClick="createMeal"
+        android:text="@string/create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/datePicker"
-        android:layout_marginLeft="68dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="48dp"
-        android:layout_toEndOf="@+id/datePicker"
-        android:layout_toRightOf="@+id/datePicker"
-        android:text="@string/create" />
+        android:layout_alignBaseline="@+id/setDate"
+        android:layout_alignBottom="@+id/setDate"
+        android:layout_toRightOf="@+id/meal_name"
+        android:layout_toEndOf="@+id/meal_name" />
+
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/meal_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/datePicker"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="11dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/meal_name" />
+        android:hint="@string/meal_name"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginBottom="19dp"
+        android:layout_above="@+id/setDate"
+        android:layout_alignLeft="@+id/setDate"
+        android:layout_alignStart="@+id/setDate" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/setDate"
+        android:onClick="setDate"
+        android:text="@string/get_date"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/spinner4"
+        android:layout_alignEnd="@+id/spinner4"
+        android:layout_marginRight="43dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="144dp" />
 
 </RelativeLayout>
